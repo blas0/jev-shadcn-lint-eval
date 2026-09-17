@@ -18,6 +18,8 @@ result is right and whether its message tells you what to change.
   `records.json` (every answer) and `summary.json` (the scores) under `results/`.
 - `build-states.mjs`: turns an agent run into states for Jev (sample:
   `state.example.json`). Tested once on a made-up run; not sent to Jev yet.
+- `LICENSE`: MIT. The test cases and fixture data come from shadcn-ui/lint,
+  also MIT; its notice is included.
 
 ## Running it
 
@@ -34,39 +36,24 @@ node run-rule-cases.mjs rule-cases.jsonl --repo <lint checkout> [--limit n]
 
 ## Test results (2026-09-17)
 
-Run: `results/rule-cases-2026-09-17T07-42-43-159Z/`. The linter's output matched
-the test labels on all 131 cases. All 246 requests succeeded: 131 asked whether
-the code breaks the rule, and 115 scored real lint messages. The 97 cases inside
-the main test project were given its real components and variants. The run used
-249,384 input tokens (Jev bills input only; output counts stay in `records.json`).
+One run, against the lint repo's real components and theme colors. Details are
+in `results/rule-cases-2026-09-17T07-42-43-159Z/`.
 
-**Does the code break the rule?** Jev ranked 89% of case pairs correctly.
+**Does the code break the rule?** Jev caught 91% of real violations. It was
+weaker on clean code and flagged 16 of 52 clean cases. Overall it answered 82%
+of the 131 cases correctly (counting a probability of 0.7 or more as "yes").
+The clean cases it got wrong mostly used things a rule deliberately ignores,
+like `bg-[#333]` under `no-raw-colors`. `rules.json` doesn't tell Jev about
+those yet.
 
-| Count as "yes" from | Accuracy | Precision | Recall |
-| --- | --- | --- | --- |
-| 0.3 | 0.68 | 0.66 | 0.97 |
-| 0.5 | 0.72 | 0.69 | 0.95 |
-| 0.7 | 0.82 | 0.82 | 0.91 |
+**Does the message say what to change?** Jev scored the linter's 115 messages
+from 0 (no help) to 2 (names the exact variant, color, or file). They averaged
+1.41. The weakest were messages like "its contract denies flex", which say
+what's wrong but not what to use instead.
 
-Jev almost never misses a real problem. Its weak spot is clean code: it gives
-clean cases an average of 0.41 to 0.59, depending on the rule.
-`no-arbitrary-values` and `no-raw-colors` did best; `no-inline-styles` and
-`no-restyle` did worst.
-
-**Does the message say what to change?** Messages are scored from 0 (no help) to
-2 (names the exact variant, color, or file). The average was 1.41, and 36 of 115
-scored below 1. `no-unknown-classes` scored highest (1.70); `no-inline-styles`
-(0.84) and `require-static-classes` (0.91) scored lowest.
-
-**What the misses show:**
-- Most wrong "yes" answers happen because Jev isn't told what each rule
-  ignores. For example, `no-raw-colors` leaves `bg-[#333]` to another rule, but
-  `rules.json` doesn't say so. Allow lists and per-component rules get missed too.
-- The lowest-scoring messages are mostly ones like "its contract denies flex",
-  which say what's wrong but not what to use instead.
-- Earlier runs sent no component data because of a bug. Adding it didn't clearly
-  change accuracy (those runs got 0.79 and 0.82 at 0.7), but it did raise input
-  tokens by about 60%.
+The run made 246 requests with no errors and used 249,384 input tokens (Jev
+bills input tokens only). Two earlier runs without component data scored 79%
+and 82%, so adding the components didn't clearly change accuracy.
 
 ## Next steps
 
