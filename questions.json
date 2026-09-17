@@ -1,0 +1,60 @@
+{
+  "model": "jev-latest",
+  "finding": {
+    "is_violation": {
+      "type": "noul",
+      "instructions": "Given `rule` and `design_system`, does the code at `finding.line` in `snippet` actually bypass the design system in the way `rule.checks` describes?",
+      "criteria": {
+        "true": "The flagged class, style, or value is off-system: it restyles a component from outside, uses a color or value the theme does not provide, or cannot be read by the linter.",
+        "false": "The flagged code is on-system or permitted by the policy in `design_system.policy`, so the finding is a false positive."
+      }
+    },
+    "message_actionable": {
+      "type": "score",
+      "instructions": "How well does `finding.message` tell a developer what to change at `finding.line` so the code follows `rule.intended_fix`?",
+      "criteria": [
+        "The message names a problem but gives no usable direction, or points at the wrong fix.",
+        "The message gives a direction, but the developer still has to look up which variant, token, or file to use.",
+        "The message names the concrete variant, size, token, or file to use, so the fix can be made without looking anything up."
+      ]
+    },
+    "fix_direction": {
+      "type": "choice",
+      "instructions": "Given `task.prompt`, `snippet`, and `design_system`, which change best resolves `finding` while keeping what the task asked for?",
+      "criteria": {
+        "use_existing_variant": "An existing variant or size listed in `design_system.components` already gives the requested look.",
+        "add_variant": "The task explicitly asks for a treatment no existing variant provides, so a new variant belongs in the component file.",
+        "use_theme_token": "A color, spacing, radius, or text token already declared in `design_system.color_tokens` or the Tailwind scale fits the request.",
+        "add_theme_token": "The task asks for a specific brand value the theme does not declare, so a new token belongs in the theme file.",
+        "move_to_parent": "The class is layout and belongs on a wrapping element rather than on the component.",
+        "fix_spelling": "The class is a typo or a name Tailwind does not generate.",
+        "not_a_violation": "Nothing needs to change; the finding is wrong."
+      }
+    }
+  },
+  "case": {
+    "is_violation": {
+      "type": "noul",
+      "instructions": "Under `rule_options` and `design_system`, does `code` contain something `rule.checks` describes as a problem?",
+      "criteria": {
+        "true": "At least one class, style, attribute, or value in `code` is off-system in the way `rule.checks` describes and is not exempted by `rule_options`.",
+        "false": "Everything in `code` is on-system for this rule, or every off-system part is exempted by `rule_options`."
+      }
+    }
+  },
+  "task": {
+    "intent_kept": {
+      "type": "score",
+      "instructions": "Comparing `before.source` and `after.source`, does the after code still deliver what `task.prompt` asked for? Snapping a stated value to the nearest theme token counts as kept.",
+      "criteria": [
+        "A stated color family, emphasis, shape, or element is missing or reversed in the after code.",
+        "The requested look is partly kept, but one stated requirement is visibly weaker than asked.",
+        "Every stated requirement is kept, allowing for snapping values to the nearest token."
+      ]
+    },
+    "workaround": {
+      "type": "noul",
+      "instructions": "Does `after.source` silence or dodge the linter instead of fixing the styling, for example with a disable comment, an inline style, a <style> element, or a class hidden in a variable?"
+    }
+  }
+}

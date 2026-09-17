@@ -1,0 +1,82 @@
+{
+  "cases": 131,
+  "errors": 0,
+  "label_vs_real_lint_mismatches": 0,
+  "auc": 0.894,
+  "thresholds": [
+    {
+      "threshold": 0.3,
+      "accuracy": 0.679,
+      "precision": 0.658,
+      "recall": 0.975,
+      "tp": 77,
+      "fp": 40,
+      "tn": 12,
+      "fn": 2
+    },
+    {
+      "threshold": 0.5,
+      "accuracy": 0.718,
+      "precision": 0.694,
+      "recall": 0.949,
+      "tp": 75,
+      "fp": 33,
+      "tn": 19,
+      "fn": 4
+    },
+    {
+      "threshold": 0.7,
+      "accuracy": 0.824,
+      "precision": 0.818,
+      "recall": 0.911,
+      "tp": 72,
+      "fp": 16,
+      "tn": 36,
+      "fn": 7
+    }
+  ],
+  "by_rule": {
+    "no-inline-styles": {
+      "n": 34,
+      "correct_at_0_5": 21,
+      "mean_p_invalid": 0.827,
+      "mean_p_valid": 0.589
+    },
+    "no-restyle": {
+      "n": 34,
+      "correct_at_0_5": 23,
+      "mean_p_invalid": 0.823,
+      "mean_p_valid": 0.549
+    },
+    "require-static-classes": {
+      "n": 10,
+      "correct_at_0_5": 7,
+      "mean_p_invalid": 0.864,
+      "mean_p_valid": 0.562
+    },
+    "no-raw-colors": {
+      "n": 28,
+      "correct_at_0_5": 23,
+      "mean_p_invalid": 0.955,
+      "mean_p_valid": 0.506
+    },
+    "no-arbitrary-values": {
+      "n": 14,
+      "correct_at_0_5": 12,
+      "mean_p_invalid": 0.906,
+      "mean_p_valid": 0.406
+    },
+    "no-unknown-classes": {
+      "n": 11,
+      "correct_at_0_5": 8,
+      "mean_p_invalid": 0.942,
+      "mean_p_valid": 0.568
+    }
+  },
+  "message_actionable": {
+    "findings": 115,
+    "mean": 1.408,
+    "below_1": 36
+  },
+  "input_tokens": 249384
+}

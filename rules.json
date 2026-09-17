@@ -1,0 +1,29 @@
+{
+  "source": "https://github.com/shadcn-ui/lint/tree/53de86f0e7dcc341a9cb45c383a9f2c454d1e958/docs/rules",
+  "rules": {
+    "shadcn/no-restyle": {
+      "checks": "Classes passed to design-system components from outside, beyond what the allow list and the component's contract permit.",
+      "intended_fix": "Use an existing variant or size of the component. Add a new variant in the component file only if the design explicitly calls for it. Layout classes may go on the component or a parent."
+    },
+    "shadcn/no-raw-colors": {
+      "checks": "Raw Tailwind palette colors (bg-pink-500), color tokens the theme does not declare, and literal colors in SVG attributes.",
+      "intended_fix": "Use a color token declared in the theme, or declare a new token in the theme file."
+    },
+    "shadcn/no-arbitrary-values": {
+      "checks": "Arbitrary values such as p-[13px] or rounded-[10px], even when an equivalent token or scale step exists.",
+      "intended_fix": "Use the equivalent theme token or scale step, snapping to the nearest one."
+    },
+    "shadcn/no-inline-styles": {
+      "checks": "Ordinary inline style properties, hardcoded colors in custom properties, unreadable style objects, and <style> elements.",
+      "intended_fix": "Use classes. Pass dynamic values through CSS custom properties that reference theme variables."
+    },
+    "shadcn/no-unknown-classes": {
+      "checks": "Class names the project's Tailwind v4 setup cannot generate, such as typos.",
+      "intended_fix": "Fix the spelling or use a class Tailwind generates."
+    },
+    "shadcn/require-static-classes": {
+      "checks": "Class values on components built from values the linter cannot read.",
+      "intended_fix": "Use static strings or conditional choices between complete class names."
+    }
+  }
+}

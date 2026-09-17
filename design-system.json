@@ -1,0 +1,509 @@
+{
+  "source": "https://github.com/shadcn-ui/lint",
+  "commit": "53de86f0e7dcc341a9cb45c383a9f2c454d1e958",
+  "outside": "The file is outside any shadcn project, so there are no theme tokens or design-system components; only palette and literal checks apply.",
+  "projects": {
+    "packages/lint/test/fixtures/project": {
+      "theme": "app/globals.css",
+      "color_tokens": [
+        "accent",
+        "accent-foreground",
+        "background",
+        "border",
+        "card",
+        "card-foreground",
+        "destructive",
+        "foreground",
+        "input",
+        "muted",
+        "muted-foreground",
+        "popover",
+        "popover-foreground",
+        "primary",
+        "primary-foreground",
+        "ring",
+        "secondary",
+        "secondary-foreground"
+      ],
+      "components": [
+        {
+          "file": "components/ui/button.tsx",
+          "exports": [
+            "Button"
+          ],
+          "variants": [
+            {
+              "name": "buttonVariants",
+              "axes": {
+                "variant": [
+                  "default",
+                  "outline",
+                  "secondary",
+                  "ghost",
+                  "destructive",
+                  "link"
+                ],
+                "size": [
+                  "default",
+                  "xs",
+                  "sm",
+                  "lg",
+                  "icon",
+                  "icon-xs",
+                  "icon-sm",
+                  "icon-lg"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "file": "components/ui/card.tsx",
+          "exports": [
+            "Card",
+            "CardAction",
+            "CardContent",
+            "CardDescription",
+            "CardFooter",
+            "CardHeader",
+            "CardTitle"
+          ],
+          "variants": [
+            {
+              "name": "Card",
+              "axes": {
+                "size": [
+                  "default",
+                  "sm"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "file": "components/ui/field.tsx",
+          "exports": [
+            "Field",
+            "FieldLabel"
+          ],
+          "variants": [
+            {
+              "name": "fieldVariants",
+              "axes": {
+                "orientation": [
+                  "vertical",
+                  "horizontal",
+                  "responsive"
+                ]
+              }
+            },
+            {
+              "name": "fieldLabelVariants",
+              "axes": {
+                "variant": [
+                  "default",
+                  "muted"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "file": "components/ui/legacy-chip.js",
+          "exports": [
+            "LegacyChip"
+          ],
+          "variants": []
+        },
+        {
+          "file": "components/ui/tv-chip.tsx",
+          "exports": [
+            "TvChip"
+          ],
+          "variants": [
+            {
+              "name": "chip",
+              "axes": {
+                "tone": [
+                  "neutral",
+                  "loud"
+                ]
+              }
+            },
+            {
+              "name": "TvChip",
+              "axes": {
+                "tone": [
+                  "neutral",
+                  "loud"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "packages/lint/test/fixtures/broken-theme": {
+      "theme": "app/globals.css",
+      "color_tokens": [
+        "primary"
+      ],
+      "components": []
+    },
+    "packages/lint/test/fixtures/prefixed": {
+      "theme": "app/globals.css",
+      "color_tokens": [
+        "primary"
+      ],
+      "components": []
+    },
+    "packages/evals/fixture": {
+      "theme": "app/globals.css",
+      "color_tokens": [
+        "accent",
+        "accent-foreground",
+        "background",
+        "border",
+        "card",
+        "card-foreground",
+        "destructive",
+        "foreground",
+        "input",
+        "muted",
+        "muted-foreground",
+        "popover",
+        "popover-foreground",
+        "primary",
+        "primary-foreground",
+        "ring",
+        "secondary",
+        "secondary-foreground"
+      ],
+      "components": [
+        {
+          "file": "components/ui/badge.tsx",
+          "exports": [
+            "Badge"
+          ],
+          "variants": [
+            {
+              "name": "badgeVariants",
+              "axes": {
+                "variant": [
+                  "default",
+                  "secondary",
+                  "destructive",
+                  "outline",
+                  "ghost",
+                  "link"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "file": "components/ui/button.tsx",
+          "exports": [
+            "Button"
+          ],
+          "variants": [
+            {
+              "name": "buttonVariants",
+              "axes": {
+                "variant": [
+                  "default",
+                  "outline",
+                  "secondary",
+                  "ghost",
+                  "destructive",
+                  "link"
+                ],
+                "size": [
+                  "default",
+                  "xs",
+                  "sm",
+                  "lg",
+                  "icon",
+                  "icon-xs",
+                  "icon-sm",
+                  "icon-lg"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "file": "components/ui/card.tsx",
+          "exports": [
+            "Card",
+            "CardAction",
+            "CardContent",
+            "CardDescription",
+            "CardFooter",
+            "CardHeader",
+            "CardTitle"
+          ],
+          "variants": [
+            {
+              "name": "Card",
+              "axes": {
+                "size": [
+                  "default",
+                  "sm"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "packages/evals/fixture-rich": {
+      "theme": "app/globals.css",
+      "color_tokens": [
+        "accent",
+        "accent-foreground",
+        "background",
+        "border",
+        "card",
+        "card-foreground",
+        "chart-1",
+        "chart-2",
+        "chart-3",
+        "chart-4",
+        "chart-5",
+        "destructive",
+        "foreground",
+        "input",
+        "muted",
+        "muted-foreground",
+        "popover",
+        "popover-foreground",
+        "primary",
+        "primary-foreground",
+        "ring",
+        "secondary",
+        "secondary-foreground",
+        "sidebar",
+        "sidebar-accent",
+        "sidebar-accent-foreground",
+        "sidebar-border",
+        "sidebar-foreground",
+        "sidebar-primary",
+        "sidebar-primary-foreground",
+        "sidebar-ring"
+      ],
+      "components": [
+        {
+          "file": "components/ui/avatar.tsx",
+          "exports": [
+            "Avatar",
+            "AvatarBadge",
+            "AvatarFallback",
+            "AvatarGroup",
+            "AvatarGroupCount",
+            "AvatarImage"
+          ],
+          "variants": [
+            {
+              "name": "Avatar",
+              "axes": {
+                "size": [
+                  "default",
+                  "sm",
+                  "lg"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "file": "components/ui/badge.tsx",
+          "exports": [
+            "Badge"
+          ],
+          "variants": [
+            {
+              "name": "badgeVariants",
+              "axes": {
+                "variant": [
+                  "default",
+                  "secondary",
+                  "destructive",
+                  "outline",
+                  "ghost",
+                  "link"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "file": "components/ui/button.tsx",
+          "exports": [
+            "Button"
+          ],
+          "variants": [
+            {
+              "name": "buttonVariants",
+              "axes": {
+                "variant": [
+                  "default",
+                  "outline",
+                  "secondary",
+                  "ghost",
+                  "destructive",
+                  "link"
+                ],
+                "size": [
+                  "default",
+                  "xs",
+                  "sm",
+                  "lg",
+                  "icon",
+                  "icon-xs",
+                  "icon-sm",
+                  "icon-lg"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "file": "components/ui/card.tsx",
+          "exports": [
+            "Card",
+            "CardAction",
+            "CardContent",
+            "CardDescription",
+            "CardFooter",
+            "CardHeader",
+            "CardTitle"
+          ],
+          "variants": [
+            {
+              "name": "Card",
+              "axes": {
+                "size": [
+                  "default",
+                  "sm"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "file": "components/ui/dropdown-menu.tsx",
+          "exports": [
+            "DropdownMenu",
+            "DropdownMenuCheckboxItem",
+            "DropdownMenuContent",
+            "DropdownMenuGroup",
+            "DropdownMenuItem",
+            "DropdownMenuLabel",
+            "DropdownMenuPortal",
+            "DropdownMenuRadioGroup",
+            "DropdownMenuRadioItem",
+            "DropdownMenuSeparator",
+            "DropdownMenuShortcut",
+            "DropdownMenuSub",
+            "DropdownMenuSubContent",
+            "DropdownMenuSubTrigger",
+            "DropdownMenuTrigger"
+          ],
+          "variants": [
+            {
+              "name": "DropdownMenuItem",
+              "axes": {
+                "variant": [
+                  "default",
+                  "destructive"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "file": "components/ui/input.tsx",
+          "exports": [
+            "Input"
+          ],
+          "variants": []
+        },
+        {
+          "file": "components/ui/label.tsx",
+          "exports": [
+            "Label"
+          ],
+          "variants": []
+        },
+        {
+          "file": "components/ui/select.tsx",
+          "exports": [
+            "Select",
+            "SelectContent",
+            "SelectGroup",
+            "SelectItem",
+            "SelectLabel",
+            "SelectScrollDownButton",
+            "SelectScrollUpButton",
+            "SelectSeparator",
+            "SelectTrigger",
+            "SelectValue"
+          ],
+          "variants": [
+            {
+              "name": "SelectTrigger",
+              "axes": {
+                "size": [
+                  "sm",
+                  "default"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "file": "components/ui/separator.tsx",
+          "exports": [
+            "Separator"
+          ],
+          "variants": []
+        },
+        {
+          "file": "components/ui/table.tsx",
+          "exports": [
+            "Table",
+            "TableBody",
+            "TableCaption",
+            "TableCell",
+            "TableFooter",
+            "TableHead",
+            "TableHeader",
+            "TableRow"
+          ],
+          "variants": []
+        },
+        {
+          "file": "components/ui/tabs.tsx",
+          "exports": [
+            "Tabs",
+            "TabsContent",
+            "TabsList",
+            "TabsTrigger"
+          ],
+          "variants": [
+            {
+              "name": "tabsListVariants",
+              "axes": {
+                "variant": [
+                  "default",
+                  "line"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

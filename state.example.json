@@ -1,0 +1,130 @@
+{
+  "id": "brand-color:a:app/brand-color.tsx:6:shadcn/no-restyle",
+  "scope": "finding",
+  "state": {
+    "task": {
+      "id": "brand-color",
+      "prompt": "Add a Subscribe button in our brand color #FF6B35 with white text.",
+      "file": "app/brand-color.tsx"
+    },
+    "rule": {
+      "id": "shadcn/no-restyle",
+      "checks": "Classes passed to design-system components from outside, beyond what the allow list and the component's contract permit.",
+      "intended_fix": "Use an existing variant or size of the component. Add a new variant in the component file only if the design explicitly calls for it. Layout classes may go on the component or a parent."
+    },
+    "finding": {
+      "file": "app/brand-color.tsx",
+      "line": 6,
+      "message": "<copied verbatim from results.json a.violations[].message>"
+    },
+    "snippet": "   3 | export default function BrandColor() {\n   4 |   return (\n   5 |     <div className=\"p-6\">\n>  6 |       <Button className=\"bg-[#FF6B35] text-white hover:bg-[#FF6B35]/90\">\n   7 |         Subscribe\n   8 |       </Button>\n   9 |     </div>",
+    "design_system": {
+      "policy": "no-restyle allows layout on every component; Card and its Content/Header/Footer/Group/Panel slots also allow spacing. no-arbitrary-values allows layout.",
+      "fixture": "packages/evals/fixture",
+      "theme": "app/globals.css",
+      "color_tokens": [
+        "accent",
+        "accent-foreground",
+        "background",
+        "border",
+        "card",
+        "card-foreground",
+        "destructive",
+        "foreground",
+        "input",
+        "muted",
+        "muted-foreground",
+        "popover",
+        "popover-foreground",
+        "primary",
+        "primary-foreground",
+        "ring",
+        "secondary",
+        "secondary-foreground"
+      ],
+      "components": [
+        {
+          "file": "components/ui/badge.tsx",
+          "exports": [
+            "Badge"
+          ],
+          "variants": [
+            {
+              "name": "badgeVariants",
+              "axes": {
+                "variant": [
+                  "default",
+                  "secondary",
+                  "destructive",
+                  "outline",
+                  "ghost",
+                  "link"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "file": "components/ui/button.tsx",
+          "exports": [
+            "Button"
+          ],
+          "variants": [
+            {
+              "name": "buttonVariants",
+              "axes": {
+                "variant": [
+                  "default",
+                  "outline",
+                  "secondary",
+                  "ghost",
+                  "destructive",
+                  "link"
+                ],
+                "size": [
+                  "default",
+                  "xs",
+                  "sm",
+                  "lg",
+                  "icon",
+                  "icon-xs",
+                  "icon-sm",
+                  "icon-lg"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "file": "components/ui/card.tsx",
+          "exports": [
+            "Card",
+            "CardAction",
+            "CardContent",
+            "CardDescription",
+            "CardFooter",
+            "CardHeader",
+            "CardTitle"
+          ],
+          "variants": [
+            {
+              "name": "Card",
+              "axes": {
+                "size": [
+                  "default",
+                  "sm"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "context": {
+    "run": "run-<id>",
+    "condition": "a",
+    "c_redirect": "variant-added",
+    "c_violations_after": 0
+  }
+}
